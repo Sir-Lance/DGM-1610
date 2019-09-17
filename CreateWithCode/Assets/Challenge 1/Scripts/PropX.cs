@@ -5,7 +5,7 @@ using UnityEngine;
 public class PropX : MonoBehaviour
 {
     public GameObject Propeller;
-    private float propSpin = 3.0f;
+    private float propSpin = 10.0f;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,6 +15,6 @@ public class PropX : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Rotate(Vector3.forward * propSpin);
+        transform.Rotate(Vector3.back * propSpin);
     }
 }
