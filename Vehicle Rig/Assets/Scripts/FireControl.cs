@@ -4,60 +4,67 @@ using UnityEngine;
 
 public class FireControl : MonoBehaviour
 {
-    public AudioSource mouseclick;
-    public float recoil = 0.0f;
-    public float delay = 0.0f;
-    public float reset = 3.0f;
-    public float spent = 0.0f;
-    public float fire = 0.0f;
+    public AudioSource firesfx;
+    public float reloadRate = 3.0f;
+    public float reload;
+    //public float fire = 0.0f;
+    public float timer1 = 1.00f;
+    public float timer2 = 1.00f;
+    public bool chamber;
+    public bool trigger;
     
     // Update is called once per frame
     void Update()
     {
-         if(delay >= 1.0f){
-                TurretForwardRecoil();
-                delay-= 1.0f;
-            }
-            
-        recoil = Time.deltaTime * 0.0f;
-        
-        
-        if(Input.GetButtonDown("Fire1")){
-            fire = 1.0f;
-        }
-        
-        if((fire = 1.0f) & (spent = 0.0f))
+        //Takes mouse1 input to activate trigger
+        if(Input.GetButtonDown("Fire1"))
         {
-
-            Fire();
-        }
-        if(recoil > 0.0f){
-             
-            TurretBackRecoil();
-            delay+= 1.0f;
-        }
- 
-    }
-        void TurretBackRecoil() {       
-            transform.Translate(new Vector3(0,0,-50) * Time.deltaTime );         
-        }
-
-        void TurretForwardRecoil() {
-            transform.Translate(new Vector3(0,0,50) * Time.deltaTime);
-        }
-
-        void Fire(){
-            spent = 1.0f;
-            if(spent = 1.0f){
-                reset-= 1.0f;
+            Trigger();
+            
+            //checks if triggger was pulled and chamber was loaded
+            if((trigger == true) & (chamber == true))
+            {
+                //fires the gun
+                Fire();
             }
-            recoil+= 0.2f;
-            mouseclick.Play();
-            reset = 3.0f;
-            if(reset >= 3.0f){
-                fire = 0.0f;
-                spent = 0.0f;
-            }
-
         }
     }
+
+    void Trigger()
+    {
+        //Trigger Boolean activating
+        trigger = true;
+    }
+    
+    void Fire()
+    {
+        //Fire function
+        firesfx.Play();
+        chamber = false;
+        if(chamber == false){
+            StartCoroutine("Reload", reloadRate);
+        }
+    }
+    
+    IEnumerator Reload(float ReloadTime)
+    {
+        yield return new WaitForSeconds (ReloadTime);
+            chamber = true;
+    }
+
+    void Reset()
+    {
+
+    }
+
+        
+        // void TurretBackRecoil() {       
+        //     transform.Translate(new Vector3(0,0,-50) * Time.deltaTime );         
+        // }
+
+        // void TurretForwardRecoil() {
+        //     transform.Translate(new Vector3(0,0,50) * Time.deltaTime);
+        // }
+
+      
+}

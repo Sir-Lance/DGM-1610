@@ -415,7 +415,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: -0.04296875, y: 0, z: 10, w: 7}
+  m_BoundingSphereOverride: {x: 9.1837e-41, y: 9e-44, z: -1.571e-42, w: 1.7e-44}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -882,7 +882,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2dddb830a6eda44d88c6db627f5322f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseclick: {fileID: 670282733}
+  firesfx: {fileID: 670282733}
+  reloadRate: 5
+  reload: 0
+  timer1: 1
+  timer2: 1
+  chamber: 1
+  trigger: 0
 --- !u!1001 &1781553194
 PrefabInstance:
   m_ObjectHideFlags: 0
