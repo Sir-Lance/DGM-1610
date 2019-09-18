@@ -5,11 +5,7 @@ using UnityEngine;
 public class FireControl : MonoBehaviour
 {
     public AudioSource firesfx;
-    public float reloadRate = 3.0f;
-    public float reload;
-    //public float fire = 0.0f;
-    public float timer1 = 1.00f;
-    public float timer2 = 1.00f;
+    public float reloadRate = 1.8f;
     public bool chamber;
     public bool trigger;
     
@@ -41,22 +37,20 @@ public class FireControl : MonoBehaviour
         //Fire function
         firesfx.Play();
         chamber = false;
-        if(chamber == false){
+        
+        //This starts the Reload
+        if(chamber == false)
+        {
             StartCoroutine("Reload", reloadRate);
         }
     }
     
-    IEnumerator Reload(float ReloadTime)
+    IEnumerator Reload(float reloadRate)
     {
-        yield return new WaitForSeconds (ReloadTime);
-            chamber = true;
+        yield return new WaitForSeconds (reloadRate);
+        chamber = true;
+        trigger = false;
     }
-
-    void Reset()
-    {
-
-    }
-
         
         // void TurretBackRecoil() {       
         //     transform.Translate(new Vector3(0,0,-50) * Time.deltaTime );         
