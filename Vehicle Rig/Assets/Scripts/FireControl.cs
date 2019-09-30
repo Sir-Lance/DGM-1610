@@ -7,7 +7,7 @@ public class FireControl : MonoBehaviour
     public AudioSource firesfx;
     public float reloadRate = 1.8f;
     public bool chamber;
-    public bool trigger;
+    bool trigger;
     
     // Update is called once per frame
     void Update()
