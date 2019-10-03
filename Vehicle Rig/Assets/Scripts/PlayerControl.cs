@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Movement1 : MonoBehaviour
+public class PlayerControl : MonoBehaviour
 {
     private float speed = 20.0f;
     private float turnSpeed = 45.0f;
@@ -19,12 +19,12 @@ public class Movement1 : MonoBehaviour
     {
         forwardInput = Input.GetAxis("Vertical");
         horizontalInput = Input.GetAxis("Horizontal");
-        //Moves car forward/back 
+        
+        //Moves tank forward/back 
         transform.Translate(Vector3.forward * Time.deltaTime * speed * forwardInput);
-        //MOves car left/right
+       
+        //Moves tank left/right
         transform.Rotate(Vector3.up, turnSpeed * horizontalInput * Time.deltaTime);
-        //no longer used
-        //transform.Translate(Vector3.right * Time.deltaTime * turnSpeed * horizontalInput);
         
     }
 }

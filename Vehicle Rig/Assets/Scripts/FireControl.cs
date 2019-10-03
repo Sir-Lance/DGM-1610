@@ -8,6 +8,7 @@ public class FireControl : MonoBehaviour
     public float reloadRate = 1.8f;
     public bool chamber;
     bool trigger;
+    public GameObject projectilePrefab;
     
     // Update is called once per frame
     void Update()
@@ -17,11 +18,12 @@ public class FireControl : MonoBehaviour
         {
             Trigger();
             
-            //checks if triggger was pulled and chamber was loaded
+            //checks if trigger was pulled and chamber was loaded
             if((trigger == true) & (chamber == true))
             {
                 //fires the gun
                 Fire();
+                
             }
         }
     }
@@ -37,6 +39,7 @@ public class FireControl : MonoBehaviour
         //Fire function
         firesfx.Play();
         chamber = false;
+        Instantiate(projectilePrefab, transform.position, projectilePrefab.transform.rotation);
         
         //This starts the Reload
         if(chamber == false)
@@ -51,14 +54,5 @@ public class FireControl : MonoBehaviour
         chamber = true;
         trigger = false;
     }
-        
-        // void TurretBackRecoil() {       
-        //     transform.Translate(new Vector3(0,0,-50) * Time.deltaTime );         
-        // }
-
-        // void TurretForwardRecoil() {
-        //     transform.Translate(new Vector3(0,0,50) * Time.deltaTime);
-        // }
-
       
 }
