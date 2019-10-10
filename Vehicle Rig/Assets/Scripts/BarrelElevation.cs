@@ -10,6 +10,7 @@ public class BarrelElevation : MonoBehaviour
     public float maxElevation = -8.0f;
     public float maxDepression = 6.0f;
 
+
     // Update is called once per frame
        void Update()
     {
@@ -18,8 +19,18 @@ public class BarrelElevation : MonoBehaviour
         transform.Rotate(Vector3.left, rotSpeed * verticalInput * Time.deltaTime);
         
         //If statements prevent the gun from going past a certain depression or elevation
+        //NOT FUCKING WORKING
+        if(transform.rotation.z <= maxElevation)
+        {
+            transform.rotation = new Quaternion(maxElevation, transform.rotation.y, transform.rotation.z, transform.rotation.w);
+            Debug.Log("High");
+        }
+        if(transform.rotation.z >= maxDepression)
+        {
+            transform.rotation = new Quaternion(-maxDepression, transform.rotation.y, transform.rotation.z, transform.rotation.w);
+            Debug.Log("Low");
+        }
         
-         
 
         //Locks cursor to the center of the screen
         

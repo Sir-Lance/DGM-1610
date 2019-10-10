@@ -8,18 +8,21 @@ public class FireControl : MonoBehaviour
     public float reloadRate = 7.2f;
     public bool chamber;
     bool trigger;
-    //public GameObject projectilePrefab;
+    public float range = 1200f;
+    public float ejectForce = 400.0f;
     public AudioSource firesfx;
     public GameObject originPoint;
-    public float range = 1200f;
     public ParticleSystem muzzleFlash;
     public GameObject impactEffect;
     public GameObject boreSight;
+    public GameObject ejectionOrigin;
+    public GameObject spentShell;
+
     
     // Update is called once per frame
     void Update()
     {
-        //BoreSight
+        //draws BoreSight with raycast from the muzzle gameobject
         RaycastHit hit;
         if(Physics.Raycast(originPoint.transform.position, originPoint.transform.forward, out hit, range))
         {
@@ -38,6 +41,8 @@ public class FireControl : MonoBehaviour
             {
                 //fires the gun
                 Fire();
+                //Ejects round out of ejection port.
+                Ejection();
                 
             }
         }
@@ -48,8 +53,16 @@ public class FireControl : MonoBehaviour
         //Trigger Boolean activating
         trigger = true;
     }
+
+    void Ejection()
+    {
+        GameObject casing = Instantiate(spentShell, ejectionOrigin.transform.position, ejectionOrigin.transform.rotation);
+        casing.AddComponent<Rigidbody>().AddForce(transform.forward * -ejectForce);
+        Destroy(casing, 30.0f);
+        
+    }
     
-    public void Fire()
+    void Fire()
     {
         //Fire function
         firesfx.Play();
@@ -63,7 +76,7 @@ public class FireControl : MonoBehaviour
             Debug.Log(hit.transform.name);
         }
 
-        //impact effect
+        //impact effect when hit is registered on mesh/rigidbody
         GameObject impactGO = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
         Destroy(impactGO, 3f);
 
