@@ -4,11 +4,16 @@ using UnityEngine;
 
 public class FireControl : MonoBehaviour
 {
-    public AudioSource firesfx;
+    
     public float reloadRate = 1.8f;
     public bool chamber;
     bool trigger;
-    public GameObject projectilePrefab;
+    //public GameObject projectilePrefab;
+    public AudioSource firesfx;
+    public GameObject originPoint;
+    public float range = 100f;
+    public ParticleSystem muzzleFlash;
+    public GameObject muzzlePrefab;
     
     // Update is called once per frame
     void Update()
@@ -38,8 +43,15 @@ public class FireControl : MonoBehaviour
     {
         //Fire function
         firesfx.Play();
+        muzzleFlash.Play();
         chamber = false;
-        Instantiate(projectilePrefab, transform.position, projectilePrefab.transform.rotation);
+        //Instantiate(projectilePrefab, transform.position, projectilePrefab.transform.rotation);
+        Instantiate(muzzleFlash);
+        //raycast hitscan
+        RaycastHit hit;
+        if(Physics.Raycast(originPoint.transform.position, originPoint.transform.forward, out hit, range)){
+            Debug.Log(hit.transform.name);
+        }
         
         //This starts the Reload
         if(chamber == false)

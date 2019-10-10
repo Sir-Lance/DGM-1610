@@ -19,7 +19,7 @@ public class BarrelElevation : MonoBehaviour
         
         //If statements prevent the gun from going past a certain depression or elevation
         // if(transform.Rotate.x < maxElevation){
-        //     transform.rotation(maxElevation, 0, 0);
+        //     transform.Rotate(maxElevation, 0, 0);
         // }
 
         //Locks cursor to the center of the screen
