@@ -7,6 +7,8 @@ public class CameraToggle : MonoBehaviour
 
     public Camera thirdPersonCamera;
     public Camera fcsCamera;
+    public Canvas thirdCameraUI;
+    public Canvas fcsCameraUI;
     bool toggle;
 
     void Update()
@@ -32,13 +34,16 @@ public class CameraToggle : MonoBehaviour
     {
         thirdPersonCamera.enabled = true;
         fcsCamera.enabled = false;
+        thirdCameraUI.enabled = true;
+        fcsCameraUI.enabled = false;
     }
 
     void ShowFCSCamera()
     {
         thirdPersonCamera.enabled = false;
         fcsCamera.enabled = true;
+        thirdCameraUI.enabled = false;
+        fcsCameraUI.enabled = true;
     }
-
-
+    
 }

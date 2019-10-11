@@ -7,12 +7,6 @@ public class TurretRotation : MonoBehaviour
     public GameObject turret;
     public float rotSpeed = 50.0f;
     private float horizontalInput;
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()

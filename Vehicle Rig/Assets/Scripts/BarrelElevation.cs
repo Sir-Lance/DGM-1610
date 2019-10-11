@@ -7,12 +7,13 @@ public class BarrelElevation : MonoBehaviour
     public GameObject rotPoint;
     public float rotSpeed = 30.0f;
     public float verticalInput;
-    public float maxElevation = -8.0f;
+    public float maxElevation = -15.0f;
     public float maxDepression = 6.0f;
 
     // Update is called once per frame
     void Update()
     {
+        //data types store data of vector3 for game object
         float rotX = transform.localRotation.eulerAngles.x;
         float rotY = transform.localRotation.eulerAngles.y;
         float rotZ = transform.localRotation.eulerAngles.z;
@@ -23,6 +24,8 @@ public class BarrelElevation : MonoBehaviour
         
         //If statements prevent the gun from going past a certain depression or elevation
         
+        //variable rotX spits out 360 degrees instead of 0
+        //this changes the variable value to 0
         if(rotX > 180f)
         {
             rotX -= 360f;
@@ -33,6 +36,8 @@ public class BarrelElevation : MonoBehaviour
             rotX += 360f;
         }
         
+        
+        //this scans if GameObject has reached the angle specified above
         if(rotX < maxElevation)
         {
             Vector3 newRot = new Vector3(maxElevation, rotY, rotZ);
@@ -41,6 +46,7 @@ public class BarrelElevation : MonoBehaviour
             Debug.Log("High");
         }
         
+        //this scans if GameObject has reached the angle specified above
         if(rotX > maxDepression)
         {
             Vector3 newRot = new Vector3(maxDepression, rotY, rotZ);

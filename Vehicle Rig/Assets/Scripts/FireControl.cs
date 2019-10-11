@@ -90,7 +90,11 @@ public class FireControl : MonoBehaviour
     IEnumerator Reload(float reloadRate)
     {
         yield return new WaitForSeconds (reloadRate);
+        
+        //loads next round in chamber - bool state true
         chamber = true;
+        
+        //resets trigger bool
         trigger = false;
     }
      
