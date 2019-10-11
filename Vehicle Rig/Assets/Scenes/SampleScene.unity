@@ -670,6 +670,11 @@ PrefabInstance:
       propertyPath: m_Mass
       value: 8000
       objectReference: {fileID: 0}
+    - target: {fileID: 666547805896142821, guid: 82a8629b487b99a4dafc990fc0970bd5,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 666547807018268239, guid: 82a8629b487b99a4dafc990fc0970bd5,
         type: 3}
       propertyPath: ejectionOrigin
@@ -836,6 +841,11 @@ PrefabInstance:
       propertyPath: ColorModule.gradient.maxGradient.key2.a
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 666547806551535360, guid: 82a8629b487b99a4dafc990fc0970bd5,
+        type: 3}
+      propertyPath: ClampVelocityModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7606162255674658638, guid: 82a8629b487b99a4dafc990fc0970bd5,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -845,6 +855,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: -5.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8818576542927070903, guid: 82a8629b487b99a4dafc990fc0970bd5,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.563
+      objectReference: {fileID: 0}
+    - target: {fileID: 666547806615227523, guid: 82a8629b487b99a4dafc990fc0970bd5,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82a8629b487b99a4dafc990fc0970bd5, type: 3}
