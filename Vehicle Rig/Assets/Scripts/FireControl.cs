@@ -12,11 +12,14 @@ public class FireControl : MonoBehaviour
     public float ejectForce = 400.0f;
     public AudioSource firesfx;
     public GameObject originPoint;
+    public GameObject boreOrigin;
     public ParticleSystem muzzleFlash;
     public GameObject impactEffect;
     public GameObject boreSight;
     public GameObject ejectionOrigin;
     public GameObject spentShell;
+    public GameObject projectileAP;
+    public float muzzleVelocity = 2000.0f;
 
     
     // Update is called once per frame
@@ -24,7 +27,7 @@ public class FireControl : MonoBehaviour
     {
         //draws BoreSight with raycast from the muzzle gameobject
         RaycastHit hit;
-        if(Physics.Raycast(originPoint.transform.position, originPoint.transform.forward, out hit, range))
+        if(Physics.Raycast(boreOrigin.transform.position, boreOrigin.transform.forward, out hit, range))
         {
             GameObject boreTrace = Instantiate(boreSight, hit.point, Quaternion.LookRotation(hit.normal));
             Destroy(boreTrace, 0.01f);
@@ -69,16 +72,20 @@ public class FireControl : MonoBehaviour
         muzzleFlash.Play();
         chamber = false;      
         
+        //create rigid body projectile
+        GameObject projectile = Instantiate(projectileAP, originPoint.transform.position, originPoint.transform.rotation);
+        projectile.AddComponent<Rigidbody>().AddForce(transform.forward * muzzleVelocity);
+        
         //raycast hitscan
-        RaycastHit hit;
-        if(Physics.Raycast(originPoint.transform.position, originPoint.transform.forward, out hit, range))
-        {
-            Debug.Log(hit.transform.name);
-        }
+        //RaycastHit hit;
+        //if(Physics.Raycast(originPoint.transform.position, originPoint.transform.forward, out hit, range))
+        //{
+        //    Debug.Log(hit.transform.name);
+        //}
 
         //impact effect when hit is registered on mesh/rigidbody
-        GameObject impactGO = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
-        Destroy(impactGO, 3f);
+       // GameObject impactGO = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
+       //Destroy(impactGO, 3f);
 
         //This starts the Reload
         if(chamber == false)
