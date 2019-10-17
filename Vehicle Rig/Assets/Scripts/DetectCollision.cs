@@ -4,9 +4,16 @@ using UnityEngine;
 
 public class DetectCollision : MonoBehaviour
 {
-    void OnTriggerEnter(Collider other)
+
+
+
+    void OnCollisionEnter(Collision collision)
     {
-        Destroy(gameObject);
-        Destroy(other.gameObject);
+
+        Destroy(gameObject, 3f);
+        
+        //too destructive
+        //Destroy(collision.gameObject, 10f);
+
     }
 }

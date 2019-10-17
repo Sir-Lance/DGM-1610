@@ -32,7 +32,7 @@ public class FireControl : MonoBehaviour
             GameObject boreTrace = Instantiate(boreSight, hit.point, Quaternion.LookRotation(hit.normal));
             Destroy(boreTrace, 0.01f);
         }
-        
+
         
         //Takes mouse1 input to activate trigger
         if(Input.GetButtonDown("Fire1"))
@@ -75,6 +75,8 @@ public class FireControl : MonoBehaviour
         //create rigid body projectile
         GameObject projectile = Instantiate(projectileAP, originPoint.transform.position, originPoint.transform.rotation);
         projectile.AddComponent<Rigidbody>().AddForce(transform.forward * muzzleVelocity);
+        Destroy(projectile, 15f);
+        //projectile.collisionDetectionMode.ContinuousDynamic;
         
         //raycast hitscan
         //RaycastHit hit;
