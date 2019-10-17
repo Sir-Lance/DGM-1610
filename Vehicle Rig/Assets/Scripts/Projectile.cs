@@ -10,11 +10,21 @@ public class Projectile : MonoBehaviour
     public GameObject ricochetEffect;
     public GameObject originPointRC;
     public float rngBullshit;
+    Rigidbody m_Proj;
 
 
+    void Update()
+    {
+        //Change the collision detection of the projectile immediately after Instantiate
+        m_Proj = GetComponent<Rigidbody>();
+        m_Proj.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
+        m_Proj.mass = 5;
+    }
+    
     void OnCollisionEnter(Collision collision)
     {
         
+        //self explanatory
         rngBullshit = Random.Range(0.0f, 10.0f);
         Debug.Log("RNG Bullshit = " + rngBullshit);
         if(rngBullshit < 5f){
@@ -29,6 +39,7 @@ public class Projectile : MonoBehaviour
     
     void Ricochet()
     {
+        //on roll shell will ricochet
         GameObject impactFX = Instantiate(ricochetEffect, originPointRC.transform.position, originPointRC.transform.rotation);
         Debug.Log("Ricochet");
         Destroy(gameObject, 10f);
@@ -37,6 +48,7 @@ public class Projectile : MonoBehaviour
     
     void Detonate()
     {
+        //on roll shell will detonate and cause damage
         GameObject impactFX = Instantiate(impactEffect, originPoint.transform.position, originPoint.transform.rotation);
         Debug.Log("FuseHit");
         Destroy(gameObject);

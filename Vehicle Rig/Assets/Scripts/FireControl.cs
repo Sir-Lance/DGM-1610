@@ -20,6 +20,8 @@ public class FireControl : MonoBehaviour
     public GameObject spentShell;
     public GameObject projectileAP;
     public float muzzleVelocity = 2000.0f;
+    public CameraShake cameraShake;
+    public CameraShake cameraShake2;
 
     
     // Update is called once per frame
@@ -72,11 +74,15 @@ public class FireControl : MonoBehaviour
         muzzleFlash.Play();
         chamber = false;      
         
-        //create rigid body projectile
+        //create rigid body projectile and yeet it at muzzleVelocity
         GameObject projectile = Instantiate(projectileAP, originPoint.transform.position, originPoint.transform.rotation);
         projectile.AddComponent<Rigidbody>().AddForce(transform.forward * muzzleVelocity);
         Destroy(projectile, 15f);
-        //projectile.collisionDetectionMode.ContinuousDynamic;
+        
+        //starts camerashake script for FCS Camera
+        StartCoroutine(cameraShake.Shake(.5f, .7f));
+        //starts camerashake script for Main Camera
+        StartCoroutine(cameraShake2.Shake(.4f, .3f));
         
         //raycast hitscan
         //RaycastHit hit;
@@ -86,8 +92,8 @@ public class FireControl : MonoBehaviour
         //}
 
         //impact effect when hit is registered on mesh/rigidbody
-       // GameObject impactGO = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
-       //Destroy(impactGO, 3f);
+        // GameObject impactGO = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
+        //Destroy(impactGO, 3f);
 
         //This starts the Reload
         if(chamber == false)
