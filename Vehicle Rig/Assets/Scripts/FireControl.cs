@@ -8,8 +8,8 @@ public class FireControl : MonoBehaviour
     public float reloadRate = 7.2f;
     public bool chamber;
     bool trigger;
-    public float range = 1200f;
-    public float ejectForce = 400.0f;
+    public float range = 3000f;
+    public float ejectForce = 3000.0f;
     public AudioSource firesfx;
     public GameObject originPoint;
     public GameObject boreOrigin;
@@ -19,7 +19,7 @@ public class FireControl : MonoBehaviour
     public GameObject ejectionOrigin;
     public GameObject spentShell;
     public GameObject projectileAP;
-    public float muzzleVelocity = 2000.0f;
+    public float muzzleVelocity = 57000.0f;
     public CameraShake cameraShake;
     public CameraShake cameraShake2;
 

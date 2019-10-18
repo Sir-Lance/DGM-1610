@@ -13,7 +13,7 @@ public class Projectile : MonoBehaviour
     Rigidbody m_Proj;
 
 
-    void Update()
+    void Start()
     {
         //Change the collision detection of the projectile immediately after Instantiate
         m_Proj = GetComponent<Rigidbody>();
