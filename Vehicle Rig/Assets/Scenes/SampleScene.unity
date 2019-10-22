@@ -3170,6 +3170,11 @@ PrefabInstance:
       propertyPath: m_SuspensionSpring.spring
       value: 500
       objectReference: {fileID: 0}
+    - target: {fileID: 928127309629962473, guid: f7161f74c32f22b4fb9d463ae2d786d0,
+        type: 3}
+      propertyPath: muzzleVelocity
+      value: 30000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f7161f74c32f22b4fb9d463ae2d786d0, type: 3}
 --- !u!1 &8296172668893750922 stripped
