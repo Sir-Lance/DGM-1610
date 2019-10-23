@@ -33,7 +33,6 @@ public class CameraToggle : MonoBehaviour
             thirdPersonCamera.fieldOfView = 80.0f;
         }
 
-        
         //Zoomed In
         if(toggleFOV == true)
         {
@@ -57,7 +56,6 @@ public class CameraToggle : MonoBehaviour
             ShowFCSCamera();
         }
     }
-
 
     void ShowThirdPerson()
     {
