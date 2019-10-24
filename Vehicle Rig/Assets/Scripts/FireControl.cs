@@ -84,6 +84,7 @@ public class FireControl : MonoBehaviour
         //starts camerashake script for Main Camera
         StartCoroutine(cameraShake2.Shake(.4f, .3f));
         
+        //-----LEGACY-----
         //raycast hitscan
         //RaycastHit hit;
         //if(Physics.Raycast(originPoint.transform.position, originPoint.transform.forward, out hit, range))
@@ -94,6 +95,7 @@ public class FireControl : MonoBehaviour
         //impact effect when hit is registered on mesh/rigidbody
         // GameObject impactGO = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
         //Destroy(impactGO, 3f);
+        //-----LEGACY-----
 
         //This starts the Reload
         if(chamber == false)
