@@ -22,6 +22,7 @@ public class FireControl : MonoBehaviour
     public float muzzleVelocity = 57000.0f;
     public CameraShake cameraShake;
     public CameraShake cameraShake2;
+    public Animation fireAnim;
 
     
     // Update is called once per frame
@@ -72,7 +73,8 @@ public class FireControl : MonoBehaviour
         //Fire function
         firesfx.Play();
         muzzleFlash.Play();
-        chamber = false;      
+        chamber = false;
+        fireAnim.Play();      
         
         //create rigid body projectile and yeet it at muzzleVelocity
         GameObject projectile = Instantiate(projectileAP, originPoint.transform.position, originPoint.transform.rotation);
