@@ -4765,7 +4765,7 @@ GameObject:
   - component: {fileID: 1560295590655609038}
   m_Layer: 0
   m_Name: apshell 5
-  m_TagString: Untagged
+  m_TagString: Shell
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4817,6 +4817,8 @@ MonoBehaviour:
   ricochetEffect: {fileID: 2439204874696898031, guid: 1142ac8547a9d2e4c80e83f17dd1a67f,
     type: 3}
   originPointRC: {fileID: 6990683469528582364}
+  detPoint: {fileID: 4180597762856247688, guid: 0b43af44a69597740a1fcd7765a2a4e3,
+    type: 3}
   rngBullshit: 0
 --- !u!1 &5283122150852335366
 GameObject:

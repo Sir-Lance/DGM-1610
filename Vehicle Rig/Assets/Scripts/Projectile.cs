@@ -9,6 +9,7 @@ public class Projectile : MonoBehaviour
     public GameObject originPoint;
     public GameObject ricochetEffect;
     public GameObject originPointRC;
+    //public GameObject detPoint;
     public float rngBullshit;
     Rigidbody m_Proj;
 
@@ -50,9 +51,11 @@ public class Projectile : MonoBehaviour
     {
         //on roll shell will detonate and cause damage
         GameObject impactFX = Instantiate(impactEffect, originPoint.transform.position, originPoint.transform.rotation);
+        //GameObject detonationPoint = Instantiate(detPoint, originPoint.transform.position, originPoint.transform.rotation);
         Debug.Log("FuseHit");
         Destroy(gameObject);
         Destroy(impactFX, 3.0f);
+        //Destroy(detonationPoint, 0.5f);
 
     }
 }

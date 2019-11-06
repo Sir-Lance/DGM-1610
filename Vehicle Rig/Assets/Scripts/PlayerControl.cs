@@ -10,6 +10,7 @@ public class PlayerControl : MonoBehaviour
     public float speed2 = 100.0f;
     private float neutral = 0.0f;
     public float brake = 30.0f;
+    public float pivotPoint = 1000.0f;
     public float horizontalInput;
     public float forwardInput;
 
@@ -194,7 +195,7 @@ public class PlayerControl : MonoBehaviour
             w1r.GetComponent<WheelCollider>().brakeTorque = neutral;
             w2r.GetComponent<WheelCollider>().brakeTorque = neutral;
             w3r.GetComponent<WheelCollider>().brakeTorque = neutral;
-            w4r.GetComponent<WheelCollider>().brakeTorque = neutral;
+            w4r.GetComponent<WheelCollider>().brakeTorque = pivotPoint;
             w5r.GetComponent<WheelCollider>().brakeTorque = neutral;
             w6r.GetComponent<WheelCollider>().brakeTorque = neutral;
             w7r.GetComponent<WheelCollider>().brakeTorque = neutral;
@@ -245,7 +246,7 @@ public class PlayerControl : MonoBehaviour
             w1l.GetComponent<WheelCollider>().brakeTorque = neutral;
             w2l.GetComponent<WheelCollider>().brakeTorque = neutral;
             w3l.GetComponent<WheelCollider>().brakeTorque = neutral;
-            w4l.GetComponent<WheelCollider>().brakeTorque = neutral;
+            w4l.GetComponent<WheelCollider>().brakeTorque = pivotPoint;
             w5l.GetComponent<WheelCollider>().brakeTorque = neutral;
             w6l.GetComponent<WheelCollider>().brakeTorque = neutral;
             w7l.GetComponent<WheelCollider>().brakeTorque = neutral;
