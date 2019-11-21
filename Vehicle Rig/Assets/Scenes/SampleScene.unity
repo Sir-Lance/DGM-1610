@@ -107,8 +107,8 @@ NavMeshSettings:
     agentTypeID: 0
     agentRadius: 10
     agentHeight: 5
-    agentSlope: 19.7
-    agentClimb: 2
+    agentSlope: 17.9
+    agentClimb: 1.67
     ledgeDropHeight: 0
     maxJumpAcrossDistance: 0
     minRegionArea: 2
@@ -2633,8 +2633,8 @@ GameObject:
   m_Name: Cube (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!54 &1605833301
 Rigidbody:
@@ -3333,6 +3333,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyTank
       objectReference: {fileID: 0}
+    - target: {fileID: 8716489690808630310, guid: 783b74c5a0cb18640b859b312d29f1c5,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 5669021384959217205, guid: 783b74c5a0cb18640b859b312d29f1c5,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3386,6 +3391,31 @@ PrefabInstance:
     - target: {fileID: 5669021384959217205, guid: 783b74c5a0cb18640b859b312d29f1c5,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 853111241311568668, guid: 783b74c5a0cb18640b859b312d29f1c5,
+        type: 3}
+      propertyPath: m_Radius
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 853111241311568668, guid: 783b74c5a0cb18640b859b312d29f1c5,
+        type: 3}
+      propertyPath: m_Height
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 853111241311568668, guid: 783b74c5a0cb18640b859b312d29f1c5,
+        type: 3}
+      propertyPath: m_AngularSpeed
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 853111241311568668, guid: 783b74c5a0cb18640b859b312d29f1c5,
+        type: 3}
+      propertyPath: m_StoppingDistance
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 853111241311568668, guid: 783b74c5a0cb18640b859b312d29f1c5,
+        type: 3}
+      propertyPath: m_BaseOffset
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 853111240340313571, guid: 783b74c5a0cb18640b859b312d29f1c5,
