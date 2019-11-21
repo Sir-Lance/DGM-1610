@@ -10,10 +10,15 @@ public class DetectCollision : MonoBehaviour
     void OnCollisionEnter(Collision collision)
     {
 
-        Destroy(gameObject, 3f);
-        
-        //too destructive
-        //Destroy(collision.gameObject, 10f);
+        if(collision.gameObject.CompareTag("Shell"))
+        {
+            Debug.Log("TAKING DAMAGE");
+        }
+
+        if(collision.gameObject.CompareTag("Untagged"))
+        {
+            Debug.Log("MINOR DAMAGE");
+        }
 
     }
 }

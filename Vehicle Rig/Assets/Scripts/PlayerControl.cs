@@ -13,6 +13,7 @@ public class PlayerControl : MonoBehaviour
     public float pivotPoint = 1000.0f;
     public float horizontalInput;
     public float forwardInput;
+    public float pivotAssistForce = 10.0f;
 
     //audioevents
     public AudioSource moving;
@@ -47,6 +48,8 @@ public class PlayerControl : MonoBehaviour
         
         //neutral
         if(forwardInput == 0 && horizontalInput == 0){
+            
+            //Audio Event
             moving = GetComponent<AudioSource>();
             moving.pitch = 1f;
 
@@ -87,8 +90,11 @@ public class PlayerControl : MonoBehaviour
         
         //forward input
         if(forwardInput > 0){
+            
+            //Audio Event
             moving = GetComponent<AudioSource>();
             moving.pitch = 2f;
+            
             //motorTorque forward
             //right
             w1r.GetComponent<WheelCollider>().motorTorque = speed2;
@@ -129,8 +135,11 @@ public class PlayerControl : MonoBehaviour
 
         //reverse input
         if(forwardInput < 0){
+            
+            //Audio Event
             moving = GetComponent<AudioSource>();
             moving.pitch = 2f;
+            
             //motorTorque back
             //right
             w1r.GetComponent<WheelCollider>().motorTorque = -speed2;
@@ -171,6 +180,10 @@ public class PlayerControl : MonoBehaviour
 
         //turn right input
         if(horizontalInput > 0){
+            
+            moving = GetComponent<AudioSource>();
+            moving.pitch = 2f;
+            
             //motorTorque left - tank tracks use inverse operation to turn
             //right turns backward
             w1r.GetComponent<WheelCollider>().motorTorque = -turnSpeed;
@@ -208,10 +221,17 @@ public class PlayerControl : MonoBehaviour
             w5l.GetComponent<WheelCollider>().brakeTorque = neutral;
             w6l.GetComponent<WheelCollider>().brakeTorque = neutral;
             w7l.GetComponent<WheelCollider>().brakeTorque = neutral;
+
+
         }
         
         //turn left input
         if(horizontalInput < 0){
+            
+            //Audio Event
+            moving = GetComponent<AudioSource>();
+            moving.pitch = 2f;
+
             //motorTorque right - tank tracks use inverse operation to turn
             //right neutral
             w1r.GetComponent<WheelCollider>().motorTorque = neutral;
@@ -259,7 +279,13 @@ public class PlayerControl : MonoBehaviour
         
         //Legacy
         //Moves tank left/right
-        //transform.Rotate(Vector3.up, turnSpeed * horizontalInput * Time.deltaTime);
+        
+        //No Longer Legacy
+
+        //PivotAssist
+        //Rotates Tank because figuring out the phyics on wheelcolliders to make a vehicle
+        //neutral steer is fucking annoying.
+        transform.Rotate(Vector3.up, pivotAssistForce * horizontalInput * Time.deltaTime);
         
     }
 }

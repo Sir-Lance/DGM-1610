@@ -20,6 +20,8 @@ public class Projectile : MonoBehaviour
         m_Proj = GetComponent<Rigidbody>();
         m_Proj.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
         m_Proj.mass = 5;
+
+        gameObject.tag = "Untagged";
     }
     
     void OnCollisionEnter(Collision collision)
@@ -45,6 +47,8 @@ public class Projectile : MonoBehaviour
         Debug.Log("Ricochet");
         Destroy(gameObject, 10f);
         Destroy(impactFX, 3.0f);
+
+        gameObject.tag = "Untagged";
     }
     
     void Detonate()
@@ -53,9 +57,11 @@ public class Projectile : MonoBehaviour
         GameObject impactFX = Instantiate(impactEffect, originPoint.transform.position, originPoint.transform.rotation);
         //GameObject detonationPoint = Instantiate(detPoint, originPoint.transform.position, originPoint.transform.rotation);
         Debug.Log("FuseHit");
-        Destroy(gameObject);
+        Destroy(gameObject, 0.1f);
         Destroy(impactFX, 3.0f);
         //Destroy(detonationPoint, 0.5f);
+
+        gameObject.tag = "Shell";
 
     }
 }
