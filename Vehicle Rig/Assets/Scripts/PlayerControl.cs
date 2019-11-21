@@ -13,7 +13,7 @@ public class PlayerControl : MonoBehaviour
     public float pivotPoint = 1000.0f;
     public float horizontalInput;
     public float forwardInput;
-    public float pivotAssistForce = 10.0f;
+    public float pivotAssistForce = 30.0f;
 
     //audioevents
     public AudioSource moving;
@@ -40,18 +40,22 @@ public class PlayerControl : MonoBehaviour
     public GameObject w7l;
 
 
+
     // Update is called once per frame
     void Update()
     {
         forwardInput = Input.GetAxis("Vertical");
         horizontalInput = Input.GetAxis("Horizontal");
         
-        //neutral
+
+        
+        //neutral / full brake
         if(forwardInput == 0 && horizontalInput == 0){
             
             //Audio Event
             moving = GetComponent<AudioSource>();
-            moving.pitch = 1f;
+            moving.pitch = 0.8f;
+            //stopped.Play();
 
             //torque back to 0
             //when input is 0 torque is set to neutral = 0
@@ -287,5 +291,6 @@ public class PlayerControl : MonoBehaviour
         //neutral steer is fucking annoying.
         transform.Rotate(Vector3.up, pivotAssistForce * horizontalInput * Time.deltaTime);
         
+
     }
 }

@@ -7,10 +7,13 @@ public class CameraShake : MonoBehaviour
     // Start is called before the first frame update
     public IEnumerator Shake(float duration, float magnitude)
     {
+        
+        //saves original position
         Vector3 origPos = transform.localPosition;
 
         float elapsed = 0.0f;
 
+        //when couroutine is called to this action will repeat under a timer
         while (elapsed < duration)
         {
             float x = Random.Range(-1f, 1f) * magnitude;

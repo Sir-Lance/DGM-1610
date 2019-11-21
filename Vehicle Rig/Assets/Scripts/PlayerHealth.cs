@@ -4,33 +4,44 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
+    public static PlayerHealth instance;
     public float pHealth = 100.0f;
-    //public AudioSource hitSound;
+    public ParticleSystem engineSmoke;
+    public ParticleSystem ejectFire;
+    public ParticleSystem hatchFire1;
+    public ParticleSystem hatchFire2;
+    void Start()
+    {
+        instance = this;
+    }
     
-
-
     // Update is called once per frame
     void Update()
     {
         if(pHealth <= 0.0f)
         {
-            Debug.Log("Game Over");
-        }
-    }
-
-    void OnCollisionEnter(Collision collision)
-    {
-        if(collision.gameObject.CompareTag("PlayerHitbox"))
-        {
-            //hitSound.Play();
-            Debug.Log("Health: " + pHealth);
-        }
-        else if(collision.gameObject.CompareTag("Shell"))
-        {
-            pHealth -= 25.0f;
-            Debug.Log("TAKING DAMAGE");
             Debug.Log("Health = " + pHealth);
-            //hitSound.Play();
+            Debug.Log("GAMEOVER");
+            Time.timeScale = 0.01f;
+        }
+
+        if(pHealth >= 25 && pHealth <= 50)
+        {
+            engineSmoke.Play();
+            Debug.Log("ENGINE FIRE");
+        }
+        
+        if(pHealth >= 10 && pHealth <= 25)
+        {
+            ejectFire.Play();
+            Debug.Log("AMMO FIRE");
+        }
+
+        if(pHealth >= 0 && pHealth <= 10)
+        {
+            hatchFire1.Play();
+            hatchFire2.Play();
+            Debug.Log("CRITICAL FAILURE");
         }
     }
 }
