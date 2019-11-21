@@ -34,7 +34,7 @@ public class Projectile : MonoBehaviour
             Detonate();
         }
         
-        if(rngBullshit > 2f){
+        if(rngBullshit > 8f){
             Ricochet();
         }
 
