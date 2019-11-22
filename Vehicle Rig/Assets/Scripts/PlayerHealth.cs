@@ -25,13 +25,13 @@ public class PlayerHealth : MonoBehaviour
             Time.timeScale = 0.01f;
         }
 
-        if(pHealth >= 25 && pHealth <= 50)
+        if(pHealth >= 0 && pHealth <= 50)
         {
             engineSmoke.Play();
             Debug.Log("ENGINE FIRE");
         }
         
-        if(pHealth >= 10 && pHealth <= 25)
+        if(pHealth >= 0 && pHealth <= 25)
         {
             ejectFire.Play();
             Debug.Log("AMMO FIRE");

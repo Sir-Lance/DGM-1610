@@ -30,11 +30,11 @@ public class Projectile : MonoBehaviour
         //self explanatory
         rngBullshit = Random.Range(0.0f, 10.0f);
         Debug.Log("RNG Bullshit = " + rngBullshit);
-        if(rngBullshit < 8f){
+        if(rngBullshit < 7f){
             Detonate();
         }
         
-        if(rngBullshit > 8f){
+        if(rngBullshit > 7f){
             Ricochet();
         }
 
