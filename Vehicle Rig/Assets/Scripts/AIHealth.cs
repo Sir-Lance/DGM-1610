@@ -4,17 +4,16 @@ using UnityEngine;
 
 public class AIHealth : MonoBehaviour
 {
-    public static AIHealth instance;
     public float AIuHealth = 100.0f;
     public ParticleSystem AIengineSmoke;
     public ParticleSystem AIejectFire;
     public ParticleSystem AIhatchFire1;
     public ParticleSystem AIhatchFire2;
-    void Start()
-    {
-        instance = this;
-    }
     
+    bool play1;
+    bool play2;
+    bool play3;
+
     // Update is called once per frame
     void Update()
     {
@@ -28,23 +27,26 @@ public class AIHealth : MonoBehaviour
 
         
         //engine fire effect
-        if(AIuHealth >= 0 && AIuHealth <= 50)
+        if(AIuHealth >= 0 && AIuHealth <= 50 && !play1)
         {
+            play1 = true;
             AIengineSmoke.Play();
             Debug.Log("AI ENGINE FIRE");
         }
         
         //ejection port fire effect
-        if(AIuHealth >= 0 && AIuHealth <= 25)
+        if(AIuHealth >= 0 && AIuHealth <= 25 && !play2)
         {
+            play2 = true;
             AIejectFire.Play();
             Debug.Log("AI AMMO FIRE");
         }
 
         
         //hatch fire effect(critical damage)
-        if(AIuHealth >= 0 && AIuHealth <= 10)
+        if(AIuHealth >= 0 && AIuHealth <= 10 && !play3)
         {
+            play3 = true;
             AIhatchFire1.Play();
             AIhatchFire2.Play();
             Debug.Log("AI CRITICAL FAILURE");

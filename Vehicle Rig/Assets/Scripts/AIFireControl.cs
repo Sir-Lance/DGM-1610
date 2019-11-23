@@ -24,10 +24,8 @@ public class AIFireControl : MonoBehaviour
     public float randomFire;
 
     //killswitch
-    private AIHealth health;
+    public AIHealth health;
 
-
-    
     // Update is called once per frame
     void Update()
     {
@@ -41,23 +39,6 @@ public class AIFireControl : MonoBehaviour
 
         randomFire = Random.Range(0.0f, 10000.0f);
         AIRaycast();
-
-        
-    //     //Takes mouse1 input to activate trigger
-    //     if(Input.GetButtonDown("Fire1"))
-    //     {
-    //         Trigger();
-            
-    //         //checks if trigger was pulled and chamber was loaded
-    //         if((trigger == true) & (chamber == true))
-    //         {
-    //             //fires the gun
-    //             Fire();
-    //             //Ejects round out of ejection port.
-    //             Ejection();
-                
-    //         }
-    //     }
     }
 
     void Trigger()
@@ -101,7 +82,7 @@ public class AIFireControl : MonoBehaviour
         {
            Debug.Log(hit.transform.name);
            
-           if(hit.transform.name == "MBTHull" && randomFire > 9000.0f && AIHealth.instance.AIuHealth > 0)
+           if(hit.transform.name == "MBTHull" && randomFire > 9000.0f && health.AIuHealth > 0)
            {
                 Trigger();
                 

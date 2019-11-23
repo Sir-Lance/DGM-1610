@@ -9,6 +9,11 @@ public class AIDetectCollision : MonoBehaviour
     private AIHealth health;
     float randomDamage;
 
+    void Awake() 
+    {
+        health = GetComponent<AIHealth>();
+    }
+    
     void Update()
     {
         randomDamage = Random.Range(10.0f, 20.0f);
@@ -21,7 +26,7 @@ public class AIDetectCollision : MonoBehaviour
         {
             hitSFX.Play();
             Debug.Log("AI TAKING DAMAGE");
-            AIHealth.instance.AIuHealth -= randomDamage;
+            health.AIuHealth -= randomDamage;
             Debug.Log("Damge Done = " + randomDamage);
         }
 
@@ -29,7 +34,7 @@ public class AIDetectCollision : MonoBehaviour
         {
             collisionSFX.Play();
             Debug.Log("AI MINOR DAMAGE");
-            AIHealth.instance.AIuHealth -= 1.0f; 
+            health.AIuHealth -= 1.0f; 
         }
 
     }

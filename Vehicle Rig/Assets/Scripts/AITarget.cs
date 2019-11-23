@@ -1,27 +1,39 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
 
 public class AITarget : MonoBehaviour
 {
    public GameObject Turret;
-   public GameObject Player;
+   private GameObject _player;
    private AIHealth health;
+   public float throwForce = 1000.0f;
+   public float throwTorque = 1000.0f;
+   bool dead;
+   
+   void Awake()
+   {
+       _player = GameObject.FindWithTag("Player");
+       health = transform.parent.GetComponent<AIHealth>();
+   }
    
    void Update()
    {
         
-        if(AIHealth.instance.AIuHealth >= 0)
+        if(!dead)
         {
-            Turret.transform.LookAt(Player.transform);
+            Turret.transform.LookAt(_player.transform);
         }
 
-        if(AIHealth.instance.AIuHealth <= 0)
+        if(health.AIuHealth <= 0 && !dead)
         {
-            transform.parent = null;
+            dead = true;
             
-            Turret.AddComponent<Rigidbody>().AddForce(transform.up);
+            transform.parent = null;
+            var Rbody = Turret.AddComponent<Rigidbody>();
+            Rbody.mass = 80;
+            Rbody.AddForce(transform.up * throwForce, ForceMode.Impulse);
+            Rbody.AddTorque(transform.right * throwTorque, ForceMode.Impulse);
             Destroy(gameObject, 15f);
         }
    

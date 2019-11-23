@@ -10,6 +10,11 @@ public class PlayerHealth : MonoBehaviour
     public ParticleSystem ejectFire;
     public ParticleSystem hatchFire1;
     public ParticleSystem hatchFire2;
+    
+    bool play1;
+    bool play2;
+    bool play3;
+
     void Start()
     {
         instance = this;
@@ -25,20 +30,23 @@ public class PlayerHealth : MonoBehaviour
             Time.timeScale = 0.01f;
         }
 
-        if(pHealth >= 0 && pHealth <= 50)
+        if(pHealth >= 0 && pHealth <= 50 && !play1)
         {
+            play1 = true;
             engineSmoke.Play();
             Debug.Log("ENGINE FIRE");
         }
         
-        if(pHealth >= 0 && pHealth <= 25)
+        if(pHealth >= 0 && pHealth <= 25 && !play2)
         {
+            play2 = true;
             ejectFire.Play();
             Debug.Log("AMMO FIRE");
         }
 
-        if(pHealth >= 0 && pHealth <= 10)
+        if(pHealth >= 0 && pHealth <= 10 && !play3)
         {
+            play3 = true;
             hatchFire1.Play();
             hatchFire2.Play();
             Debug.Log("CRITICAL FAILURE");

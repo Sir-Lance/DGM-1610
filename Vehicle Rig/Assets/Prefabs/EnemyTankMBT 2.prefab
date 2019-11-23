@@ -170,8 +170,8 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 233.50851
-  MaxDistance: 500
+  MinDistance: 0
+  MaxDistance: 200
   Pan2D: 0
   rolloffMode: 1
   BypassEffects: 0
@@ -182,22 +182,22 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 1.0223732
       inSlope: 0
       outSlope: 0
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
+      inWeight: 0
+      outWeight: 0
     - serializedVersion: 3
       time: 1
       value: 0
-      inSlope: 0
-      outSlope: 0
+      inSlope: -1.8762325
+      outSlope: -1.8762325
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
+      inWeight: 0
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
@@ -312,6 +312,39 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   collisionSFX: {fileID: 5998373104777460212}
   hitSFX: {fileID: 5998373105031616236}
+--- !u!114 &7104586242784503423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2314689236676206706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7dad227b779c5df4197c7abfbd7f0527, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reloadRate: 7.2
+  chamber: 1
+  range: 3000
+  ejectForce: 3000
+  firesfx: {fileID: 5998373105285450409}
+  originPoint: {fileID: 5998373104538066423}
+  boreOrigin: {fileID: 5998373104538066423}
+  projOrigin: {fileID: 5998373103270162868}
+  muzzleFlash: {fileID: 5998373103342086125}
+  impactEffect: {fileID: 5943784685494014161, guid: 4fa6714bc3b5946439fed0944ea0de50,
+    type: 3}
+  boreSight: {fileID: 3222169687840295171, guid: 0907fa01cc511ef4db0138fad0ac928c,
+    type: 3}
+  ejectionOrigin: {fileID: 5291232099870819930}
+  spentShell: {fileID: 8573782800152806571, guid: efa0a2f2245ee4e40aaa28df85a941be,
+    type: 3}
+  projectileAP: {fileID: 5042324534897765797, guid: 39e6480ef3d4ccc4888906e334969a2b,
+    type: 3}
+  muzzleVelocity: 20000
+  randomFire: 0
+  health: {fileID: 28604874409522221}
 --- !u!1 &3923325417512867267
 GameObject:
   m_ObjectHideFlags: 0
@@ -5353,10 +5386,10 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 17.224674
-  MaxDistance: 500
+  MinDistance: 0
+  MaxDistance: 200
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 1
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -5480,10 +5513,10 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 14.025367
-  MaxDistance: 500
+  MinDistance: 0
+  MaxDistance: 200
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 1
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -10414,7 +10447,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Turret: {fileID: 2314689237369441940}
-  Player: {fileID: 0}
+  throwForce: 1000
+  throwTorque: 1000
 --- !u!1 &5998373104221189223
 GameObject:
   m_ObjectHideFlags: 0
@@ -15298,10 +15332,10 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 14.197926
-  MaxDistance: 500
+  MinDistance: 0
+  MaxDistance: 200
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 1
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -15425,10 +15459,10 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 12.202596
-  MaxDistance: 500
+  MinDistance: 0
+  MaxDistance: 200
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 1
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -15552,10 +15586,10 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 55.553997
-  MaxDistance: 500
+  MinDistance: 0
+  MaxDistance: 200
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 1
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -20524,10 +20558,10 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 24.066338
-  MaxDistance: 500
+  MinDistance: 0
+  MaxDistance: 200
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 1
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -20692,20 +20726,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 14
   m_Mesh: {fileID: -5274522780155876557, guid: 2db480ca6643e6d4486e42cfb0903bb8, type: 3}
---- !u!64 &5998373105167228609
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7828653923256646780}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 3
-  m_Convex: 1
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 8108563764783910780, guid: 2d182813ddb24f0449f916a5b049253a, type: 3}
 --- !u!64 &5998373105216862845
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -20720,38 +20740,20 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 14
   m_Mesh: {fileID: 6950793426350120886, guid: 751da8735835ad54fa49f194d477d389, type: 3}
---- !u!114 &7104586242784503423
-MonoBehaviour:
+--- !u!64 &5998373105167228609
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2314689236676206706}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7dad227b779c5df4197c7abfbd7f0527, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  reloadRate: 7.2
-  chamber: 1
-  range: 3000
-  ejectForce: 3000
-  firesfx: {fileID: 5998373105285450409}
-  originPoint: {fileID: 5998373104538066423}
-  boreOrigin: {fileID: 5998373104538066423}
-  projOrigin: {fileID: 5998373103270162868}
-  muzzleFlash: {fileID: 5998373103342086125}
-  impactEffect: {fileID: 5943784685494014161, guid: 4fa6714bc3b5946439fed0944ea0de50,
-    type: 3}
-  boreSight: {fileID: 3222169687840295171, guid: 0907fa01cc511ef4db0138fad0ac928c,
-    type: 3}
-  ejectionOrigin: {fileID: 5291232099870819930}
-  spentShell: {fileID: 8573782800152806571, guid: efa0a2f2245ee4e40aaa28df85a941be,
-    type: 3}
-  projectileAP: {fileID: 5042324534897765797, guid: 39e6480ef3d4ccc4888906e334969a2b,
-    type: 3}
-  muzzleVelocity: 20000
-  randomFire: 0
+  m_GameObject: {fileID: 7828653923256646780}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 8108563764783910780, guid: 2d182813ddb24f0449f916a5b049253a, type: 3}
 --- !u!1001 &2671040302697585685
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20823,6 +20825,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 3603633921853068196, guid: c25658250b7aa6743a8cd36c222fbd7c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8516291014212516856, guid: c25658250b7aa6743a8cd36c222fbd7c,
         type: 3}
@@ -20999,11 +21006,6 @@ PrefabInstance:
       propertyPath: LightsModule.intensityCurve.scalar
       value: 0.2
       objectReference: {fileID: 0}
-    - target: {fileID: 3603633921853068196, guid: c25658250b7aa6743a8cd36c222fbd7c,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 646414276350313954, guid: c25658250b7aa6743a8cd36c222fbd7c,
         type: 3}
       propertyPath: m_Enabled
@@ -21147,12 +21149,6 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: cd1ea6b30449e7047b1a8568a7015fa7, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 751da8735835ad54fa49f194d477d389, type: 3}
---- !u!1 &2314689237369441940 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: 751da8735835ad54fa49f194d477d389,
-    type: 3}
-  m_PrefabInstance: {fileID: 5998373103508133789}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1301387594231498032 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4525566144633318739, guid: 751da8735835ad54fa49f194d477d389,
@@ -21168,6 +21164,12 @@ GameObject:
 --- !u!4 &1604464817023073415 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 751da8735835ad54fa49f194d477d389,
+    type: 3}
+  m_PrefabInstance: {fileID: 5998373103508133789}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2314689237369441940 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: 751da8735835ad54fa49f194d477d389,
     type: 3}
   m_PrefabInstance: {fileID: 5998373103508133789}
   m_PrefabAsset: {fileID: 0}
