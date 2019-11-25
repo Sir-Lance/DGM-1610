@@ -22,7 +22,7 @@ public class FireControl : MonoBehaviour
     public float muzzleVelocity = 57000.0f;
     public CameraShake cameraShake;
     public CameraShake cameraShake2;
-    public Animation fireAnim;
+    public int ammo = 70;
 
     
     // Update is called once per frame
@@ -43,7 +43,7 @@ public class FireControl : MonoBehaviour
             Trigger();
             
             //checks if trigger was pulled and chamber was loaded
-            if((trigger == true) & (chamber == true))
+            if((trigger == true) & (chamber == true) & (ammo > 0))
             {
                 //fires the gun
                 Fire();
@@ -62,6 +62,7 @@ public class FireControl : MonoBehaviour
 
     void Ejection()
     {
+        //ejects casing out of the rear for style
         GameObject casing = Instantiate(spentShell, ejectionOrigin.transform.position, ejectionOrigin.transform.rotation);
         casing.AddComponent<Rigidbody>().AddForce(transform.forward * -ejectForce);
         Destroy(casing, 30.0f);
@@ -74,7 +75,10 @@ public class FireControl : MonoBehaviour
         firesfx.Play();
         muzzleFlash.Play();
         chamber = false;
-        fireAnim.Play();      
+        ammo -= 1;
+        
+        //LEGACY
+        //fireAnim.Play();      
         
         //create rigid body projectile and yeet it at muzzleVelocity
         GameObject projectile = Instantiate(projectileAP, originPoint.transform.position, originPoint.transform.rotation);

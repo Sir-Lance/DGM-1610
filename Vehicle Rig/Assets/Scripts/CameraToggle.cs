@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CameraToggle : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class CameraToggle : MonoBehaviour
     bool toggle;
     bool toggleFOV;
 
+    //THIS SCRIPT ALSO HANDLES UI
     void Update()
     {
         //Zoom in/out

@@ -5,7 +5,7 @@ using UnityEngine;
 public class AITarget : MonoBehaviour
 {
    public GameObject Turret;
-   private GameObject _player;
+   public GameObject _player;
    private AIHealth health;
    public float throwForce = 1000.0f;
    public float throwTorque = 1000.0f;

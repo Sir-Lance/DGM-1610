@@ -8,10 +8,17 @@ public class AIFollow : MonoBehaviour
     public NavMeshAgent agent;
     private AIHealth health;
     Rigidbody u_AI;
+    public float randomSpeed;
 
     void Awake()  
     {
         health = GetComponent<AIHealth>();
+    }
+
+    void Start()
+    {
+        randomSpeed = Random.Range(5.0f , 16.0f);
+        agent.speed = randomSpeed;
     }
     
     // Update is called once per frame

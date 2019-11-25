@@ -30,15 +30,24 @@ public class AIFireControl : MonoBehaviour
     void Update()
     {
         //draws BoreSight with raycast from the muzzle gameobject
-        RaycastHit hit;
-        if(Physics.Raycast(boreOrigin.transform.position, boreOrigin.transform.forward, out hit, range))
+        if(health.AIuHealth > 0f)
         {
-            GameObject boreTrace = Instantiate(boreSight, hit.point, Quaternion.LookRotation(hit.normal));
-            Destroy(boreTrace, 0.01f);
+            RaycastHit hit;
+            if(Physics.Raycast(boreOrigin.transform.position, boreOrigin.transform.forward, out hit, range))
+            {
+                GameObject boreTrace = Instantiate(boreSight, hit.point, Quaternion.LookRotation(hit.normal));
+                Destroy(boreTrace, 0.01f);
+            }
+
         }
 
         randomFire = Random.Range(0.0f, 10000.0f);
-        AIRaycast();
+        
+        //killswitch
+        if(health.AIuHealth > 0f)
+        {
+            AIRaycast();
+        }
     }
 
     void Trigger()
@@ -75,14 +84,14 @@ public class AIFireControl : MonoBehaviour
         }
     }
     
+    //confirms if aiming at player
     void AIRaycast(){
         RaycastHit hit;
         
         if(Physics.Raycast(originPoint.transform.position, originPoint.transform.forward, out hit, range))
         {
-           Debug.Log(hit.transform.name);
            
-           if(hit.transform.name == "MBTHull" && randomFire > 9000.0f && health.AIuHealth > 0)
+           if(hit.transform.tag == "Player" && randomFire > 9950.0f && health.AIuHealth > 0)
            {
                 Trigger();
                 

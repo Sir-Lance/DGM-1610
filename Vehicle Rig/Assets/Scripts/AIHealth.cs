@@ -13,16 +13,19 @@ public class AIHealth : MonoBehaviour
     bool play1;
     bool play2;
     bool play3;
+    bool dead;
 
     // Update is called once per frame
     void Update()
     {
         //dead
-        if(AIuHealth <= 0.0f)
+        if(AIuHealth <= 0.0f && !dead)
         {
+            dead = true;
             Debug.Log("Health = " + AIuHealth);
             Debug.Log("AI GAMEOVER");
             Destroy(gameObject, 15f);
+            gameObject.tag = "Untagged";
         }
 
         
@@ -35,7 +38,7 @@ public class AIHealth : MonoBehaviour
         }
         
         //ejection port fire effect
-        if(AIuHealth >= 0 && AIuHealth <= 25 && !play2)
+        if(AIuHealth >= 0 && AIuHealth <= 35 && !play2)
         {
             play2 = true;
             AIejectFire.Play();
@@ -44,7 +47,7 @@ public class AIHealth : MonoBehaviour
 
         
         //hatch fire effect(critical damage)
-        if(AIuHealth >= 0 && AIuHealth <= 10 && !play3)
+        if(AIuHealth >= 0 && AIuHealth <= 20 && !play3)
         {
             play3 = true;
             AIhatchFire1.Play();

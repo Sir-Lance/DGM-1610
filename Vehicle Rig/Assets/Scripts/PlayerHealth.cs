@@ -4,32 +4,37 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
-    public static PlayerHealth instance;
     public float pHealth = 100.0f;
     public ParticleSystem engineSmoke;
     public ParticleSystem ejectFire;
     public ParticleSystem hatchFire1;
     public ParticleSystem hatchFire2;
+    public AudioSource deathSFX;
+    public AudioSource deathSFX2;
     
     bool play1;
     bool play2;
     bool play3;
+    bool dead;
 
-    void Start()
-    {
-        instance = this;
-    }
+    //instance the player ebcause there is only one player
     
     // Update is called once per frame
     void Update()
     {
-        if(pHealth <= 0.0f)
+        //player dies
+        if(pHealth <= 0.0f && !dead)
         {
+            dead = true;
             Debug.Log("Health = " + pHealth);
             Debug.Log("GAMEOVER");
-            Time.timeScale = 0.01f;
+            deathSFX.Play();
+            deathSFX2.Play();
+            //slow down time on player death
+            Time.timeScale = 0f;
         }
 
+        //show damage state visually
         if(pHealth >= 0 && pHealth <= 50 && !play1)
         {
             play1 = true;
@@ -37,14 +42,16 @@ public class PlayerHealth : MonoBehaviour
             Debug.Log("ENGINE FIRE");
         }
         
-        if(pHealth >= 0 && pHealth <= 25 && !play2)
+        //show damage state visually
+        if(pHealth >= 0 && pHealth <= 35 && !play2)
         {
             play2 = true;
             ejectFire.Play();
             Debug.Log("AMMO FIRE");
         }
 
-        if(pHealth >= 0 && pHealth <= 10 && !play3)
+        //show damage state visually
+        if(pHealth >= 0 && pHealth <= 20 && !play3)
         {
             play3 = true;
             hatchFire1.Play();

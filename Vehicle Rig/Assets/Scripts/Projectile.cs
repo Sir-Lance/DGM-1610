@@ -9,7 +9,10 @@ public class Projectile : MonoBehaviour
     public GameObject originPoint;
     public GameObject ricochetEffect;
     public GameObject originPointRC;
+    
+    //TEST
     //public GameObject detPoint;
+    
     public float rngBullshit;
     Rigidbody m_Proj;
 
@@ -30,6 +33,8 @@ public class Projectile : MonoBehaviour
         //self explanatory
         rngBullshit = Random.Range(0.0f, 10.0f);
         Debug.Log("RNG Bullshit = " + rngBullshit);
+        
+        //ricochet chance if less than X detonate
         if(rngBullshit < 7f){
             Detonate();
         }
@@ -48,6 +53,7 @@ public class Projectile : MonoBehaviour
         Destroy(gameObject, 10f);
         Destroy(impactFX, 3.0f);
 
+        //change shell tag when ricochet
         gameObject.tag = "Untagged";
     }
     
@@ -55,12 +61,18 @@ public class Projectile : MonoBehaviour
     {
         //on roll shell will detonate and cause damage
         GameObject impactFX = Instantiate(impactEffect, originPoint.transform.position, originPoint.transform.rotation);
+        
+        //TEST
         //GameObject detonationPoint = Instantiate(detPoint, originPoint.transform.position, originPoint.transform.rotation);
+        
         Debug.Log("FuseHit");
         Destroy(gameObject, 0.1f);
         Destroy(impactFX, 3.0f);
+        
+        //Test
         //Destroy(detonationPoint, 0.5f);
 
+        //change tag on shell when detonated
         gameObject.tag = "Shell";
 
     }

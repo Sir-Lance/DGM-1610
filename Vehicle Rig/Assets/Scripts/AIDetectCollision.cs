@@ -16,7 +16,7 @@ public class AIDetectCollision : MonoBehaviour
     
     void Update()
     {
-        randomDamage = Random.Range(10.0f, 20.0f);
+        randomDamage = Random.Range(15.0f, 25.0f);
     }
     
     void OnCollisionEnter(Collision collision)

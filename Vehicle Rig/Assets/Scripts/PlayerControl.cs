@@ -14,6 +14,11 @@ public class PlayerControl : MonoBehaviour
     public float horizontalInput;
     public float forwardInput;
     public float pivotAssistForce = 30.0f;
+    
+    //speed calculator
+    Vector3 FramePosition = Vector3.zero;
+    public float spdUpdate;
+
 
     //audioevents
     public AudioSource moving;
@@ -47,7 +52,10 @@ public class PlayerControl : MonoBehaviour
         forwardInput = Input.GetAxis("Vertical");
         horizontalInput = Input.GetAxis("Horizontal");
         
-
+        //speed calculator
+        float movementCheck = Vector3.Distance (FramePosition, transform.position);
+        spdUpdate = movementCheck / Time.deltaTime;
+        FramePosition = transform.position;
         
         //neutral / full brake
         if(forwardInput == 0 && horizontalInput == 0){
@@ -286,6 +294,7 @@ public class PlayerControl : MonoBehaviour
         
         //No Longer Legacy
 
+        //CURRENTLY IN USE
         //PivotAssist
         //Rotates Tank because figuring out the phyics on wheelcolliders to make a vehicle
         //neutral steer is fucking annoying.
