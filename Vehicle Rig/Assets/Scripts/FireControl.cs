@@ -130,7 +130,9 @@ public class FireControl : MonoBehaviour
         yield return new WaitForSeconds (reloadRate);
         
         //loads next round in chamber - bool state true
-        chamber = true;
+        if(ammo >= 1){
+            chamber = true;
+        }
         
         //resets trigger bool
         trigger = false;

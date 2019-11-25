@@ -8,6 +8,7 @@ public class CameraToggle : MonoBehaviour
 
     public Camera thirdPersonCamera;
     public Camera fcsCamera;
+    public Camera endCamera;
     public Canvas thirdCameraUI;
     public Canvas fcsCameraUI;
     private Pause pauseBool;
@@ -15,17 +16,22 @@ public class CameraToggle : MonoBehaviour
     bool toggleFOV;
     bool alive = true;
     private PlayerHealth healthPoints;
+    private EnemyCounter enemyCnt;
+    public int enemiesF;
 
 
     void Awake()
     {
         pauseBool = GameObject.Find("PauseToggle").GetComponent<Pause>();
         healthPoints = GameObject.Find("MBTHull").GetComponent<PlayerHealth>();
+        enemyCnt = GameObject.Find("Enemy Counter").GetComponent<EnemyCounter>();
     }
 
     //THIS SCRIPT ALSO HANDLES UI
     void Update()
     {
+        enemiesF = enemyCnt.enemies;
+        
         if(healthPoints.pHealth <= 0)
         {
             alive = false;
@@ -72,6 +78,11 @@ public class CameraToggle : MonoBehaviour
         {
             ShowFCSCamera();
         }
+
+        if(enemiesF == 0 || !alive)
+        {
+            EndCamera();
+        }
     }
 
     void ShowThirdPerson()
@@ -80,7 +91,7 @@ public class CameraToggle : MonoBehaviour
         fcsCamera.enabled = false;
         thirdCameraUI.enabled = true;
         fcsCameraUI.enabled = false;
-
+        endCamera.enabled = false;
     }
 
     void ShowFCSCamera()
@@ -89,7 +100,16 @@ public class CameraToggle : MonoBehaviour
         fcsCamera.enabled = true;
         thirdCameraUI.enabled = false;
         fcsCameraUI.enabled = true;
+        endCamera.enabled = false;
 
+    }
+    void EndCamera()
+    {
+        thirdPersonCamera.enabled = false;
+        fcsCamera.enabled = false;
+        thirdCameraUI.enabled = false;
+        fcsCameraUI.enabled = false;
+        endCamera.enabled = true;
     }
     
 }

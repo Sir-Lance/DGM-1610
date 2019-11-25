@@ -81,6 +81,13 @@ public class UIControl : MonoBehaviour
             ammoVal.color = Color.white;
         }
 
+        if(uiAmmo == 0)
+        {
+            loadVal.text = "NO AMMO";
+            loadVal.color = Color.red;
+            ammoVal.color = Color.red;
+        }
+
         spdVal.text = uiSpeed.ToString("0");
 
         //Health Value

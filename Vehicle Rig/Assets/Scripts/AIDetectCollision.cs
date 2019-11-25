@@ -8,6 +8,8 @@ public class AIDetectCollision : MonoBehaviour
     public AudioSource hitSFX;
     private AIHealth health;
     float randomDamage;
+    bool alive = true;
+    public float killSwitchHP;
 
     void Awake() 
     {
@@ -16,7 +18,12 @@ public class AIDetectCollision : MonoBehaviour
     
     void Update()
     {
+        killSwitchHP = health.AIuHealth;
         randomDamage = Random.Range(15.0f, 25.0f);
+        if(health.AIuHealth <= 0f)
+        {
+            alive = false;
+        }
     }
     
     void OnCollisionEnter(Collision collision)
@@ -24,7 +31,11 @@ public class AIDetectCollision : MonoBehaviour
 
         if(collision.gameObject.CompareTag("Shell"))
         {
-            hitSFX.Play();
+            if(alive)
+            {
+                hitSFX.Play();
+            }
+            
             Debug.Log("AI TAKING DAMAGE");
             health.AIuHealth -= randomDamage;
             Debug.Log("Damge Done = " + randomDamage);
@@ -32,7 +43,11 @@ public class AIDetectCollision : MonoBehaviour
 
         if(collision.gameObject.CompareTag("Untagged"))
         {
-            collisionSFX.Play();
+            if(alive)
+            {
+                collisionSFX.Play();
+            }
+            
             Debug.Log("AI MINOR DAMAGE");
             health.AIuHealth -= 1.0f; 
         }

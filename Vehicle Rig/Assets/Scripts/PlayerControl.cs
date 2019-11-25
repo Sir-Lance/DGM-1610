@@ -79,7 +79,8 @@ public class PlayerControl : MonoBehaviour
         //Rotates Tank because figuring out the phyics on 
         //wheelcolliders to make a vehicle
         //neutral steer is fucking annoying.
-        if(pauseBool.paused == false && alive){
+        if(pauseBool.paused == false && alive)
+        {
             transform.Rotate(Vector3.up, pivotAssistForce * horizontalInput * Time.deltaTime);
         }
         

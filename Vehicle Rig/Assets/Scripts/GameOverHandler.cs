@@ -30,10 +30,17 @@ public class GameOverHandler : MonoBehaviour
             Time.timeScale = 1f;
         }
 
+        if(playerHP <= 0 && Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene("MainMenuX"); // Make thank you screen
+            Debug.Log("Reloading Scene");
+            Time.timeScale = 1f;
+        }
+
         if(enemiesAlive <= 0 && Input.GetKeyDown(KeyCode.Space))
         {
             //Testing
-            SceneManager.LoadScene("SampleScene"); // Change Sample Scene
+            SceneManager.LoadScene("MainMenuX"); // Change Sample Scene
             Debug.Log("Loading Next Scene");
         }
     }
