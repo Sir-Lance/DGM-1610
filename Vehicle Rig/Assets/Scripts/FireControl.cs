@@ -23,11 +23,26 @@ public class FireControl : MonoBehaviour
     public CameraShake cameraShake;
     public CameraShake cameraShake2;
     public int ammo = 70;
+    private Pause pauseBool;
+    private PlayerHealth healthPoints;
+    bool alive = true;
 
+    
+    void Awake()
+    {
+        pauseBool = GameObject.Find("PauseToggle").GetComponent<Pause>();
+        healthPoints = GameObject.Find("MBTHull").GetComponent<PlayerHealth>();
+    }
     
     // Update is called once per frame
     void Update()
     {
+        if(healthPoints.pHealth < 0f)
+        {
+            alive = false;
+        }
+        
+        
         //draws BoreSight with raycast from the muzzle gameobject
         RaycastHit hit;
         if(Physics.Raycast(boreOrigin.transform.position, boreOrigin.transform.forward, out hit, range))
@@ -38,7 +53,7 @@ public class FireControl : MonoBehaviour
 
         
         //Takes mouse1 input to activate trigger
-        if(Input.GetButtonDown("Fire1"))
+        if(Input.GetButtonDown("Fire1") && pauseBool.paused == false && alive)
         {
             Trigger();
             

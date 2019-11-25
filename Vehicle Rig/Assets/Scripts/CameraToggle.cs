@@ -10,20 +10,35 @@ public class CameraToggle : MonoBehaviour
     public Camera fcsCamera;
     public Canvas thirdCameraUI;
     public Canvas fcsCameraUI;
+    private Pause pauseBool;
     bool toggle;
     bool toggleFOV;
+    bool alive = true;
+    private PlayerHealth healthPoints;
+
+
+    void Awake()
+    {
+        pauseBool = GameObject.Find("PauseToggle").GetComponent<Pause>();
+        healthPoints = GameObject.Find("MBTHull").GetComponent<PlayerHealth>();
+    }
 
     //THIS SCRIPT ALSO HANDLES UI
     void Update()
     {
+        if(healthPoints.pHealth <= 0)
+        {
+            alive = false;
+        }
+        
         //Zoom in/out
-        if(Input.GetButtonDown("Fire2"))
+        if(Input.GetButtonDown("Fire2") && pauseBool.paused == false && alive)
         {
             toggleFOV = !toggleFOV;
         }
         
         //reset every toggle switch
-        if(Input.GetButtonDown("Jump"))
+        if(Input.GetButtonDown("Jump") && pauseBool.paused == false && alive)
         {
             toggleFOV = false;
         }
@@ -43,7 +58,7 @@ public class CameraToggle : MonoBehaviour
         }
         
         //Toggle camera between gunsight and thirdperson
-        if(Input.GetButtonDown("Jump"))
+        if(Input.GetButtonDown("Jump") && pauseBool.paused == false && alive)
         {
             toggle = !toggle;
         }

@@ -44,11 +44,27 @@ public class PlayerControl : MonoBehaviour
     public GameObject w6l;
     public GameObject w7l;
 
+    private Pause pauseBool;
+    bool alive = true;
+    private PlayerHealth healthPoints;
+
+    
+    void Awake()
+    {
+        pauseBool = GameObject.Find("PauseToggle").GetComponent<Pause>();
+        healthPoints = GameObject.Find("MBTHull").GetComponent<PlayerHealth>();
+    }
+
 
 
     // Update is called once per frame
     void Update()
     {
+        if(healthPoints.pHealth <= 0)
+        {
+            alive = false;
+        }
+        
         forwardInput = Input.GetAxis("Vertical");
         horizontalInput = Input.GetAxis("Horizontal");
         
@@ -57,8 +73,18 @@ public class PlayerControl : MonoBehaviour
         spdUpdate = movementCheck / Time.deltaTime;
         FramePosition = transform.position;
         
+        
+        //CURRENTLY IN USE
+        //PivotAssist
+        //Rotates Tank because figuring out the phyics on 
+        //wheelcolliders to make a vehicle
+        //neutral steer is fucking annoying.
+        if(pauseBool.paused == false && alive){
+            transform.Rotate(Vector3.up, pivotAssistForce * horizontalInput * Time.deltaTime);
+        }
+        
         //neutral / full brake
-        if(forwardInput == 0 && horizontalInput == 0){
+        if(forwardInput == 0 && horizontalInput == 0  && pauseBool.paused == false && alive){
             
             //Audio Event
             moving = GetComponent<AudioSource>();
@@ -101,7 +127,7 @@ public class PlayerControl : MonoBehaviour
         }
         
         //forward input
-        if(forwardInput > 0){
+        if(forwardInput > 0 && pauseBool.paused == false && alive){
             
             //Audio Event
             moving = GetComponent<AudioSource>();
@@ -146,7 +172,7 @@ public class PlayerControl : MonoBehaviour
         }
 
         //reverse input
-        if(forwardInput < 0){
+        if(forwardInput < 0 && pauseBool.paused == false && alive){
             
             //Audio Event
             moving = GetComponent<AudioSource>();
@@ -191,7 +217,7 @@ public class PlayerControl : MonoBehaviour
         }
 
         //turn right input
-        if(horizontalInput > 0){
+        if(horizontalInput > 0 && pauseBool.paused == false && alive){
             
             moving = GetComponent<AudioSource>();
             moving.pitch = 2f;
@@ -238,7 +264,7 @@ public class PlayerControl : MonoBehaviour
         }
         
         //turn left input
-        if(horizontalInput < 0){
+        if(horizontalInput < 0 && pauseBool.paused == false && alive){
             
             //Audio Event
             moving = GetComponent<AudioSource>();
@@ -294,11 +320,7 @@ public class PlayerControl : MonoBehaviour
         
         //No Longer Legacy
 
-        //CURRENTLY IN USE
-        //PivotAssist
-        //Rotates Tank because figuring out the phyics on wheelcolliders to make a vehicle
-        //neutral steer is fucking annoying.
-        transform.Rotate(Vector3.up, pivotAssistForce * horizontalInput * Time.deltaTime);
+        
         
 
     }

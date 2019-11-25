@@ -9,19 +9,35 @@ public class BarrelElevation : MonoBehaviour
     public float verticalInput;
     public float maxElevation = -15.0f;
     public float maxDepression = 6.0f;
+    private Pause pauseBool;
+    bool alive = true;
+    private PlayerHealth healthPoints;
+
+    
+    void Awake()
+    {
+        pauseBool = GameObject.Find("PauseToggle").GetComponent<Pause>();
+        healthPoints = GameObject.Find("MBTHull").GetComponent<PlayerHealth>();
+    }
 
     // Update is called once per frame
     void Update()
     {
+        if(healthPoints.pHealth <= 0)
+        {
+            alive = false;
+        }
+        
         //data types store data of vector3 for game object
         float rotX = transform.localRotation.eulerAngles.x;
         float rotY = transform.localRotation.eulerAngles.y;
         float rotZ = transform.localRotation.eulerAngles.z;
         
         //Takes mouse input to rotate barrel on Y axis
-        verticalInput = Input.GetAxisRaw("Mouse Y");
-        transform.Rotate(Vector3.left, rotSpeed * verticalInput * Time.deltaTime);
-        
+        if(alive && pauseBool.paused == false){
+            verticalInput = Input.GetAxisRaw("Mouse Y");
+            transform.Rotate(Vector3.left, rotSpeed * verticalInput * Time.deltaTime);
+        }
         //If statements prevent the gun from going past a certain depression or elevation
         
         //variable rotX spits out 360 degrees instead of 0

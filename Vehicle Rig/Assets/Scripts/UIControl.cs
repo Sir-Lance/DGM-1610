@@ -9,11 +9,13 @@ public class UIControl : MonoBehaviour
     private FireControl cannon;
     private PlayerControl hull;
     private EnemyCounter enemyCnt;
+    private Pause pauseBool;
     public int uiAmmo;
     public float uiHealth;
     public bool uiRdyFire;
     public float uiSpeed;
     public int uiEnemy;
+    public bool pause;
     public Text spdVal;
     public Text ammoVal;
     public Text hpVal;
@@ -25,6 +27,7 @@ public class UIControl : MonoBehaviour
     public Text gameOver;
     public Text restartFlash;
     public Text continueFlash;
+    public Text pausedFlash;
 
     bool Warn1;
     bool Warn2;
@@ -38,6 +41,7 @@ public class UIControl : MonoBehaviour
         cannon = GameObject.Find("PlayerCannon").GetComponent<FireControl>();
         hull = GameObject.Find("MBTHull").GetComponent<PlayerControl>();
         enemyCnt = GameObject.Find("Enemy Counter").GetComponent<EnemyCounter>();
+        pauseBool = GameObject.Find("PauseToggle").GetComponent<Pause>();
         
         //hide UI elements until if statements are matched below
         Warn1 = true;
@@ -51,7 +55,7 @@ public class UIControl : MonoBehaviour
         gameOver.color = Color.clear;
         restartFlash.color = Color.clear;
         continueFlash.color = Color.clear;
-
+        pausedFlash.color = Color.clear;
     }
     
     // Update is called once per frame
@@ -126,5 +130,15 @@ public class UIControl : MonoBehaviour
             Cont1 = false;
             continueFlash.color = Color.white;
         }
+
+        if(pauseBool.paused == false)
+        {
+            pausedFlash.color = Color.clear;
+        }
+        if(pauseBool.paused == true)
+        {
+            pausedFlash.color = Color.white;
+        }
+
     }
 }

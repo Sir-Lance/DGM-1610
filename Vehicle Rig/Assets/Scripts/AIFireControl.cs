@@ -25,6 +25,13 @@ public class AIFireControl : MonoBehaviour
 
     //killswitch
     public AIHealth health;
+    private Pause pauseBool;
+
+    
+    void Awake()
+    {
+        pauseBool = GameObject.Find("PauseToggle").GetComponent<Pause>();
+    }
 
     // Update is called once per frame
     void Update()
@@ -84,14 +91,14 @@ public class AIFireControl : MonoBehaviour
         }
     }
     
-    //confirms if aiming at player
+    //confirms if aiming at player and fires
     void AIRaycast(){
         RaycastHit hit;
         
         if(Physics.Raycast(originPoint.transform.position, originPoint.transform.forward, out hit, range))
         {
            
-           if(hit.transform.tag == "Player" && randomFire > 9950.0f && health.AIuHealth > 0)
+           if(hit.transform.tag == "Player" && randomFire > 9950.0f && health.AIuHealth > 0 && pauseBool.paused == false)
            {
                 Trigger();
                 
