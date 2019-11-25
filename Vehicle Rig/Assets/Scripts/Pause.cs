@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Pause : MonoBehaviour
 {
@@ -30,9 +31,17 @@ public class Pause : MonoBehaviour
         {
             PauseToggleTrue();
         }
+        
         if(toggle == false && paused && alive)
         {
             PauseToggleFalse();
+        }
+        
+        if(paused && alive && Input.GetKeyDown(KeyCode.Space))
+        {
+            //Testing
+            SceneManager.LoadScene("MainMenuX"); // Change Sample Scene
+            Debug.Log("Loading Next Scene");
         }
     }
 

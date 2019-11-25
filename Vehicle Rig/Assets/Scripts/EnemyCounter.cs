@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyCounter : MonoBehaviour
 {
-    public int enemies;
+    public int enemies = 1;
 
     // Update is called once per frame
     void Update()

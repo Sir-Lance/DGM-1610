@@ -28,13 +28,19 @@ public class UIControl : MonoBehaviour
     public Text restartFlash;
     public Text continueFlash;
     public Text pausedFlash;
+    public bool Cont1 = true;
 
     bool Warn1;
     bool Warn2;
     bool Warn3;
-    bool Cont1;
+    //bool Cont1;
     bool alive;
 
+    void Start()
+    {
+        uiEnemy = 8;
+    }
+    
     void Awake()
     {
         healthPoints = GameObject.Find("MBTHull").GetComponent<PlayerHealth>();
@@ -48,14 +54,14 @@ public class UIControl : MonoBehaviour
         Warn2 = true;
         Warn3 = true;
         alive = true;
-        Cont1 = true;
         warningEngine.color = Color.clear;
         warningAmmo.color = Color.clear;
         warningCritical.color = Color.clear;
         gameOver.color = Color.clear;
         restartFlash.color = Color.clear;
-        continueFlash.color = Color.clear;
         pausedFlash.color = Color.clear;
+        continueFlash.color = Color.clear;
+
     }
     
     // Update is called once per frame
@@ -66,6 +72,8 @@ public class UIControl : MonoBehaviour
         uiRdyFire = cannon.chamber;
         uiSpeed = hull.spdUpdate;
         uiEnemy = enemyCnt.enemies;
+
+            
 
         //reload UI states
         if(uiRdyFire == false)
