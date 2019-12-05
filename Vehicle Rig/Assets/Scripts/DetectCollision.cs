@@ -6,6 +6,7 @@ public class DetectCollision : MonoBehaviour
 {
     public AudioSource collisionSFX;
     public AudioSource hitSFX;
+    public AudioSource pickupSFX;
     private PlayerHealth health;
     public CameraShake cameraShake;
     public CameraShake cameraShake2;
@@ -41,6 +42,13 @@ public class DetectCollision : MonoBehaviour
             collisionSFX.Play();
             Debug.Log("MINOR DAMAGE");
             health.pHealth -= 1.0f; 
+        }
+
+        if(collision.gameObject.CompareTag("Pickup"))
+        {
+            pickupSFX.Play();
+            Debug.Log("HEAL");
+            health.pHealth += 12.0f; 
         }
 
     }
