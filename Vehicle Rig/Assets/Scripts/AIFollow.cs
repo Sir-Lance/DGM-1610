@@ -7,7 +7,6 @@ public class AIFollow : MonoBehaviour
 {
     public NavMeshAgent agent;
     private AIHealth health;
-    public GameObject _unit; //debugging
     public GameObject spawnPoint;
     public GameObject healthPack;
     Rigidbody u_AI;
@@ -18,7 +17,7 @@ public class AIFollow : MonoBehaviour
 
     void Awake()  
     {
-        _unit = GameObject.FindWithTag("Enemy");
+
         health = GetComponent<AIHealth>();
     }
 

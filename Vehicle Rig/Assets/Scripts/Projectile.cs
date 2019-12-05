@@ -66,7 +66,7 @@ public class Projectile : MonoBehaviour
         //GameObject detonationPoint = Instantiate(detPoint, originPoint.transform.position, originPoint.transform.rotation);
         
         Debug.Log("FuseHit");
-        Destroy(gameObject, 0.1f);
+        Destroy(gameObject);
         Destroy(impactFX, 3.0f);
         
         //Test

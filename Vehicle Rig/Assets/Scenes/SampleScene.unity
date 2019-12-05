@@ -790,7 +790,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 30aab363422b9f6419ebb71d23f1345a, type: 2}
+  - {fileID: 2100000, guid: 5a95af6a195ad6e409291872713ce27c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1059,6 +1059,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 1040861558}
+  randomSpeed: 0
 --- !u!1 &1062555392
 GameObject:
   m_ObjectHideFlags: 0
@@ -2076,6 +2077,75 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 14
   m_Mesh: {fileID: 6950793426350120886, guid: 1c9a6939cfb201e4b9b127fb1ea4a198, type: 3}
+--- !u!1001 &1774615785
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2862536972207735271, guid: 860bba0f5e46b904cbf9b89b9521e825,
+        type: 3}
+      propertyPath: m_Name
+      value: Game Logic
+      objectReference: {fileID: 0}
+    - target: {fileID: 2862536972207735272, guid: 860bba0f5e46b904cbf9b89b9521e825,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -70.738434
+      objectReference: {fileID: 0}
+    - target: {fileID: 2862536972207735272, guid: 860bba0f5e46b904cbf9b89b9521e825,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 67.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2862536972207735272, guid: 860bba0f5e46b904cbf9b89b9521e825,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -998.7757
+      objectReference: {fileID: 0}
+    - target: {fileID: 2862536972207735272, guid: 860bba0f5e46b904cbf9b89b9521e825,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2862536972207735272, guid: 860bba0f5e46b904cbf9b89b9521e825,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2862536972207735272, guid: 860bba0f5e46b904cbf9b89b9521e825,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2862536972207735272, guid: 860bba0f5e46b904cbf9b89b9521e825,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2862536972207735272, guid: 860bba0f5e46b904cbf9b89b9521e825,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2862536972207735272, guid: 860bba0f5e46b904cbf9b89b9521e825,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2862536972207735272, guid: 860bba0f5e46b904cbf9b89b9521e825,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2862536972207735272, guid: 860bba0f5e46b904cbf9b89b9521e825,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 860bba0f5e46b904cbf9b89b9521e825, type: 3}
 --- !u!1 &1820039176
 GameObject:
   m_ObjectHideFlags: 0
@@ -2621,6 +2691,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy Counter
       objectReference: {fileID: 0}
+    - target: {fileID: 6325993937005497241, guid: 475696c83202e324e8fe76f6afea748b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6325993937005497223, guid: 475696c83202e324e8fe76f6afea748b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2818,6 +2893,11 @@ PrefabInstance:
     - target: {fileID: 7472610664917742263, guid: 454fff22bf036a84a91110cef04cad45,
         type: 3}
       propertyPath: m_Pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6531315659918356948, guid: 454fff22bf036a84a91110cef04cad45,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
