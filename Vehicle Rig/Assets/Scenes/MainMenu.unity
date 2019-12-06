@@ -154,7 +154,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -522}
+  m_AnchoredPosition: {x: -6, y: -408}
   m_SizeDelta: {x: 1396.8, y: 117.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &51270706
@@ -226,15 +226,15 @@ RectTransform:
   m_GameObject: {fileID: 96654239}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.54163, y: 0.54163, z: 0.54163}
   m_Children: []
   m_Father: {fileID: 1487368796}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 101.04993, y: -316.90002}
-  m_SizeDelta: {x: 593.1, y: 1002.5}
+  m_AnchoredPosition: {x: 52.899902, y: -241.7}
+  m_SizeDelta: {x: 593.1, y: 1020.9}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &96654241
 MonoBehaviour:
@@ -522,11 +522,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 35203c8474b73914f950f79b8c2b642e, type: 3}
+  m_audioClip: {fileID: 8300000, guid: ea43403f1f86b4547bfd03d4dd7a0c83, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.14
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -819,7 +819,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -654}
+  m_AnchoredPosition: {x: 0.000097942, y: -811}
   m_SizeDelta: {x: 1396.8, y: 117.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &530171475
@@ -977,7 +977,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 724, y: -700.6}
+  m_AnchoredPosition: {x: 397, y: -399}
   m_SizeDelta: {x: 437.8, y: 235.1}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &675218606
@@ -1297,7 +1297,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -371}
+  m_AnchoredPosition: {x: 0, y: -356}
   m_SizeDelta: {x: 576.3, y: 123.099976}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1063480849
@@ -1754,7 +1754,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 735, y: -611}
+  m_AnchoredPosition: {x: 408, y: -309.40002}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &1450454385
@@ -1857,10 +1857,10 @@ MonoBehaviour:
   m_Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
-  m_ReferencePixelsPerUnit: 100
+  m_UiScaleMode: 1
+  m_ReferencePixelsPerUnit: 1
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -2035,14 +2035,14 @@ RectTransform:
   m_GameObject: {fileID: 1747854109}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.54163, y: 0.54163, z: -0.43554637}
   m_Children: []
   m_Father: {fileID: 1487368796}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 117.849976, y: 109}
+  m_AnchoredPosition: {x: 62, y: -6}
   m_SizeDelta: {x: 576.3, y: 123.099976}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &1747854111

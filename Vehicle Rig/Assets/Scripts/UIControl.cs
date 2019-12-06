@@ -29,6 +29,7 @@ public class UIControl : MonoBehaviour
     public Text continueFlash;
     public Text pausedFlash;
     public bool Cont1 = true;
+    public AudioSource endSFX;
 
     bool Warn1;
     bool Warn2;
@@ -144,6 +145,7 @@ public class UIControl : MonoBehaviour
         {
             Cont1 = false;
             continueFlash.color = Color.white;
+            endSFX.Play();
         }
 
         if(pauseBool.paused == false)
